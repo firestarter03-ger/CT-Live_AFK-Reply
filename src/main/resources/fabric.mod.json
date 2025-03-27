@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "ctlive_afktimer",
+	"version": "${version}",
+	"name": "CTLIVE AFK-Timer",
+	"description": "AFK-Timer erfasst deine Aktivität und Benachrichtigt über den Chat wenn du 5min inaktiv warst!",
+	"authors": [
+		"firestarter03"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/ctlive_afktimer/ctlive_afktimer_icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.firestarter03.ctlive_afktimer.CTLIVEAFKTimer"
+		],
+		"client": [
+			"net.firestarter03.ctlive_afktimer.CTLIVEAFKTimerClient"
+		],
+		"fabric-datagen": [
+			"net.firestarter03.ctlive_afktimer.CTLIVEAFKTimerDataGenerator"
+		]
+	},
+	"mixins": [
+		"ctlive_afktimer.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
