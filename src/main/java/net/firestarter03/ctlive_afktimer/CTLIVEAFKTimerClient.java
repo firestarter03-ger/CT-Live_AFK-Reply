@@ -27,20 +27,20 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        System.out.println("[AFK-Mod] Starte Mod-Initialisierung...");
-        System.out.println("[AFK-Mod] Aktuelle Spracheinstellungen vor Laden der Konfiguration:");
-        System.out.println("- AFK-Nachrichten: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
+        // System.out.println("[AFK-Mod] Starte Mod-Initialisierung...");
+        // System.out.println("[AFK-Mod] Aktuelle Spracheinstellungen vor Laden der Konfiguration:");
+        // System.out.println("- AFK-Nachrichten: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
 
         // Lade die Konfiguration beim Start
         CTLiveAFKTimerConfig config = CTLiveAFKTimerConfig.load();
-        System.out.println("[AFK-Mod] Geladene Konfiguration:");
-        System.out.println("- AFK-Nachrichten: " + (config.useEnglishAFKMessage ? "Englisch" : "Deutsch"));
+        // System.out.println("[AFK-Mod] Geladene Konfiguration:");
+        // System.out.println("- AFK-Nachrichten: " + (config.useEnglishAFKMessage ? "Englisch" : "Deutsch"));
 
         useEnglishAFKMessage = config.useEnglishAFKMessage;
         afkTimeout = config.afkTimeout * 60 * 20;
 
-        System.out.println("[AFK-Mod] Aktuelle Spracheinstellungen nach Laden der Konfiguration:");
-        System.out.println("- AFK-Nachrichten: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
+        // System.out.println("[AFK-Mod] Aktuelle Spracheinstellungen nach Laden der Konfiguration:");
+        // System.out.println("- AFK-Nachrichten: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
 
         toggleAFKKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "AFK Toggle",
@@ -72,8 +72,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
                                          .replaceAll("[\\u2000-\\u2FFF]", "") // Entfernt Unicode-Sonderzeichen
                                          .trim();
 
-            // Debug-Ausgabe
-            System.out.println("[AFK-Mod] Empfangene Nachricht: " + cleanMessage);
+            // System.out.println("[AFK-Mod] Empfangene Nachricht: " + cleanMessage);
 
             // Prüfe, ob es sich um eine eigene Auto-Reply-Nachricht handelt
             if (cleanMessage.contains("[Auto-Reply]")) {
@@ -109,7 +108,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
             // 3. Allgemeine Namenserwähnung
             if (containsPlayerName(cleanMessage, playerName)) {
                 String sender = extractSenderFromMessage(cleanMessage);
-                System.out.println("[AFK-Mod] Extrahierter Absender: " + sender);
+                // System.out.println("[AFK-Mod] Extrahierter Absender: " + sender);
 
                 if (sender != null && !sender.isEmpty() && !sender.equalsIgnoreCase(playerName) && !lastRepliedPlayers.contains(sender.toLowerCase())) {
                     System.out.println("[AFK-Mod] Namenserwähnung von: " + sender);
@@ -130,8 +129,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
                                          .replaceAll("[\\u2000-\\u2FFF]", "") // Entfernt Unicode-Sonderzeichen
                                          .trim();
 
-            // Debug-Ausgabe
-            System.out.println("[AFK-Mod] Empfangene Chat-Nachricht: " + cleanMessage);
+            // System.out.println("[AFK-Mod] Empfangene Chat-Nachricht: " + cleanMessage);
 
             // Prüfe auf Namenserwähnung im Chat
             if (cleanMessage.contains("»")) {
@@ -151,17 +149,17 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
     }
 
     private void updateConfig() {
-        System.out.println("[AFK-Mod] Konfiguration wird aktualisiert...");
-        System.out.println("[AFK-Mod] Alte Spracheinstellungen:");
-        System.out.println("- AFK-Nachrichten: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
+        // System.out.println("[AFK-Mod] Konfiguration wird aktualisiert...");
+        // System.out.println("[AFK-Mod] Alte Spracheinstellungen:");
+        // System.out.println("- AFK-Nachrichten: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
         
         // Lade die Konfiguration neu
         CTLiveAFKTimerConfig config = CTLiveAFKTimerConfig.load();
         useEnglishAFKMessage = config.useEnglishAFKMessage;
         
-        System.out.println("[AFK-Mod] Neue Spracheinstellungen:");
-        System.out.println("- AFK-Nachrichten: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
-        System.out.println("[AFK-Mod] Konfiguration wurde aktualisiert");
+        // System.out.println("[AFK-Mod] Neue Spracheinstellungen:");
+        // System.out.println("- AFK-Nachrichten: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
+        // System.out.println("[AFK-Mod] Konfiguration wurde aktualisiert");
     }
 
     private boolean isPlayerActive(MinecraftClient client) {
@@ -199,9 +197,9 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         // AFK-Tag in der Actionbar anzeigen
         String message = afk ? (useEnglishAFKMessage ? Translations.AFK_STATUS_ON_EN : Translations.AFK_STATUS_ON_DE) 
                             : (useEnglishAFKMessage ? Translations.AFK_STATUS_OFF_EN : Translations.AFK_STATUS_OFF_DE);
-        System.out.println("[AFK-Mod] [DEBUG] [STATUS] Spieler: " + client.player.getName().getString());
-        System.out.println("[AFK-Mod] [DEBUG] [STATUS] Sprache: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
-        System.out.println("[AFK-Mod] [DEBUG] [STATUS] Nachricht: " + message);
+        // System.out.println("[AFK-Mod] [DEBUG] [STATUS] Spieler: " + client.player.getName().getString());
+        // System.out.println("[AFK-Mod] [DEBUG] [STATUS] Sprache: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
+        // System.out.println("[AFK-Mod] [DEBUG] [STATUS] Nachricht: " + message);
         client.player.sendMessage(Text.literal(message), true);
     }
 
@@ -212,10 +210,10 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         long afkDuration = System.currentTimeMillis() - afkStartTime;
         String afkTime = Translations.formatDuration(afkDuration, useEnglishAFKMessage);
         
-        System.out.println("[AFK-Mod] [DEBUG] [STATS] Spieler: " + client.player.getName().getString());
-        System.out.println("[AFK-Mod] [DEBUG] [STATS] Sprache: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
-        System.out.println("[AFK-Mod] [DEBUG] [STATS] AFK-Zeit: " + afkTime);
-        System.out.println("[AFK-Mod] [DEBUG] [STATS] Benachrichtigte Spieler: " + afkNotifiedPlayers);
+        // System.out.println("[AFK-Mod] [DEBUG] [STATS] Spieler: " + client.player.getName().getString());
+        // System.out.println("[AFK-Mod] [DEBUG] [STATS] Sprache: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
+        // System.out.println("[AFK-Mod] [DEBUG] [STATS] AFK-Zeit: " + afkTime);
+        // System.out.println("[AFK-Mod] [DEBUG] [STATS] Benachrichtigte Spieler: " + afkNotifiedPlayers);
         
         // Sende jede Zeile einzeln als separate Nachricht direkt in den Chat
         client.inGameHud.getChatHud().addMessage(Text.literal(useEnglishAFKMessage ? Translations.AFK_STATS_HEADER_EN : Translations.AFK_STATS_HEADER_DE));
@@ -236,15 +234,15 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
 
     private boolean containsPlayerName(String text, String playerName) {
         // Debug-Ausgabe für den ursprünglichen Text
-        System.out.println("[AFK-Mod] Prüfe Text auf Namenserwähnung: " + text);
-        System.out.println("[AFK-Mod] Spielername zum Suchen: " + playerName);
+        // System.out.println("[AFK-Mod] Prüfe Text auf Namenserwähnung: " + text);
+        // System.out.println("[AFK-Mod] Spielername zum Suchen: " + playerName);
         
         // Entferne Formatierungscodes und bereinige den Text
         String cleanedText = text.replaceAll("§[0-9a-fklmnor]", "")
                                .replaceAll("[\\uE000-\\uF8FF]", "") // Entfernt Unicode-Privatnutzungsbereich
                                .replaceAll("[\\u2000-\\u2FFF]", "") // Entfernt Unicode-Sonderzeichen
                                .trim();
-        System.out.println("[AFK-Mod] Bereinigter Text: " + cleanedText);
+        // System.out.println("[AFK-Mod] Bereinigter Text: " + cleanedText);
         
         // Prüfe auf » Format
         if (cleanedText.contains("»")) {
@@ -252,7 +250,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
             if (parts.length > 1) {
                 String afterArrow = parts[1].trim();
                 if (afterArrow.contains(playerName)) {
-                    System.out.println("[AFK-Mod] Namenserwähnung gefunden nach » Symbol");
+                    // System.out.println("[AFK-Mod] Namenserwähnung gefunden nach » Symbol");
                     return true;
                 }
             }
@@ -263,22 +261,22 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         boolean contains = Pattern.compile(regex, Pattern.CASE_INSENSITIVE).matcher(cleanedText).find();
         
         if (contains) {
-            System.out.println("[AFK-Mod] Namenserwähnung gefunden in: " + cleanedText);
+            // System.out.println("[AFK-Mod] Namenserwähnung gefunden in: " + cleanedText);
         } else {
-            System.out.println("[AFK-Mod] Keine Namenserwähnung gefunden");
+            // System.out.println("[AFK-Mod] Keine Namenserwähnung gefunden");
         }
         return contains;
     }
 
     private String extractSenderFromMessage(String message) {
-        System.out.println("[AFK-Mod] Extrahiere Absender aus Nachricht: " + message);
+        // System.out.println("[AFK-Mod] Extrahiere Absender aus Nachricht: " + message);
         
         // Entferne Formatierungscodes und spezielle Chat-Sonderzeichen
         String cleaned = message.replaceAll("§[0-9a-fklmnor]", "")
                               .replaceAll("[\\uE000-\\uF8FF]", "") // Entfernt Unicode-Privatnutzungsbereich
                               .replaceAll("[\\u2000-\\u2FFF]", "") // Entfernt Unicode-Sonderzeichen
                               .trim();
-        System.out.println("[AFK-Mod] Bereinigte Nachricht: " + cleaned);
+        // System.out.println("[AFK-Mod] Bereinigte Nachricht: " + cleaned);
 
         // 1. [Spieler › Spieler] Format
         if (cleaned.contains("›")) {
@@ -286,7 +284,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
             if (parts.length > 0) {
                 String sender = parts[0].replaceAll(".*\\[([^\\]]+)\\]", "$1").trim();
                 if (!sender.isEmpty()) {
-                    System.out.println("[AFK-Mod] Gefundener Absender (Format [Spieler ›]): " + sender);
+                    // System.out.println("[AFK-Mod] Gefundener Absender (Format [Spieler ›]): " + sender);
                     return sender;
                 }
             }
@@ -298,7 +296,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
             if (end > 0) {
                 String sender = cleaned.substring(1, end).trim();
                 if (!sender.isEmpty()) {
-                    System.out.println("[AFK-Mod] Gefundener Absender (Format <Spieler>): " + sender);
+                    // System.out.println("[AFK-Mod] Gefundener Absender (Format <Spieler>): " + sender);
                     return sender;
                 }
             }
@@ -311,7 +309,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
             if (afterBracket.contains(":")) {
                 String sender = afterBracket.split(":")[0].trim();
                 if (!sender.isEmpty()) {
-                    System.out.println("[AFK-Mod] Gefundener Absender (Format [Team] Spieler:): " + sender);
+                    // System.out.println("[AFK-Mod] Gefundener Absender (Format [Team] Spieler:): " + sender);
                     return sender;
                 }
             }
@@ -321,7 +319,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.contains("»")) {
             String sender = cleaned.split("»")[0].trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format Spieler»): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format Spieler»): " + sender);
                 return sender;
             }
         }
@@ -330,7 +328,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.matches(".* whispers to you:.*")) {
             String sender = cleaned.replaceAll(".* whispers to you:.*", "$1").trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format /msg): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format /msg): " + sender);
                 return sender;
             }
         }
@@ -339,7 +337,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.matches("\\[([^\\]]+)\\]")) {
             String sender = cleaned.replaceAll("\\[([^\\]]+)\\]", "$1").trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format [Spieler]): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format [Spieler]): " + sender);
                 return sender;
             }
         }
@@ -348,7 +346,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.contains(":")) {
             String sender = cleaned.split(":")[0].trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format Spieler:): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format Spieler:): " + sender);
                 return sender;
             }
         }
@@ -358,7 +356,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.matches("\\\\[^/]+ -> [^/]+/")) {
             String sender = cleaned.replaceAll("\\\\([^/]+) -> [^/]+/", "$1").trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format \\sender -> meinname/): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format \\sender -> meinname/): " + sender);
                 return sender;
             }
         }
@@ -367,7 +365,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.matches("\\{[^}]+ >> [^}]+\\}")) {
             String sender = cleaned.replaceAll("\\{([^}]+) >> [^}]+\\}", "$1").trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format {sender >> meinname}): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format {sender >> meinname}): " + sender);
                 return sender;
             }
         }
@@ -376,7 +374,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.matches("\\([^)]+ > [^)]+\\)")) {
             String sender = cleaned.replaceAll("\\(([^)]+) > [^)]+\\)", "$1").trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format (sender > meinname)): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format (sender > meinname)): " + sender);
                 return sender;
             }
         }
@@ -385,7 +383,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.matches(".*[->=>>>] .*")) {
             String sender = cleaned.split("[->=>>>]")[0].trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format Allgemeine Pfeile): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format Allgemeine Pfeile): " + sender);
                 return sender;
             }
         }
@@ -394,7 +392,7 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         if (cleaned.matches("^[^a-zA-Z0-9_]+[a-zA-Z0-9_]+.*")) {
             String sender = cleaned.replaceAll("^[^a-zA-Z0-9_]+([a-zA-Z0-9_]+).*", "$1").trim();
             if (!sender.isEmpty()) {
-                System.out.println("[AFK-Mod] Gefundener Absender (Format Sonderzeichen + Name): " + sender);
+                // System.out.println("[AFK-Mod] Gefundener Absender (Format Sonderzeichen + Name): " + sender);
                 return sender;
             }
         }
@@ -402,18 +400,18 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
         // 10. Erstes Wort als Fallback
         String sender = cleaned.split("\\s+")[0].replaceAll("[^a-zA-Z0-9_]", "");
         if (!sender.isEmpty()) {
-            System.out.println("[AFK-Mod] Gefundener Absender (Fallback): " + sender);
+            // System.out.println("[AFK-Mod] Gefundener Absender (Fallback): " + sender);
             return sender;
         }
         
-        System.out.println("[AFK-Mod] Kein Absender gefunden");
+        // System.out.println("[AFK-Mod] Kein Absender gefunden");
         return null;
     }
 
     private void sendPrivateReply(MinecraftClient client, String sender) {
         try {
             if (sender == null || sender.isEmpty()) {
-                System.out.println("[AFK-Mod] [DEBUG] [REPLY] Ungültiger Absender, keine Nachricht gesendet");
+                // System.out.println("[AFK-Mod] [DEBUG] [REPLY] Ungültiger Absender, keine Nachricht gesendet");
                 return;
             }
             
@@ -421,19 +419,19 @@ public class CTLIVEAFKTimerClient implements ClientModInitializer {
             updateConfig();
             
             String message = useEnglishAFKMessage ? Translations.AFK_MESSAGE_EN : Translations.AFK_MESSAGE_DE;
-            System.out.println("[AFK-Mod] [DEBUG] [REPLY] Spieler: " + client.player.getName().getString());
-            System.out.println("[AFK-Mod] [DEBUG] [REPLY] Sprache: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
-            System.out.println("[AFK-Mod] [DEBUG] [REPLY] Absender: " + sender);
-            System.out.println("[AFK-Mod] [DEBUG] [REPLY] Nachricht: " + message);
+            // System.out.println("[AFK-Mod] [DEBUG] [REPLY] Spieler: " + client.player.getName().getString());
+            // System.out.println("[AFK-Mod] [DEBUG] [REPLY] Sprache: " + (useEnglishAFKMessage ? "Englisch" : "Deutsch"));
+            // System.out.println("[AFK-Mod] [DEBUG] [REPLY] Absender: " + sender);
+            // System.out.println("[AFK-Mod] [DEBUG] [REPLY] Nachricht: " + message);
             
             String command = "msg " + sender + " " + message;
-            System.out.println("[AFK-Mod] [DEBUG] [REPLY] Befehl: " + command);
+            // System.out.println("[AFK-Mod] [DEBUG] [REPLY] Befehl: " + command);
             client.getNetworkHandler().sendCommand(command);
             lastRepliedPlayers.add(sender.toLowerCase());
             afkNotifiedPlayers.add(sender);
-            System.out.println("[AFK-Mod] [DEBUG] [REPLY] Auto-Reply erfolgreich gesendet");
+            // System.out.println("[AFK-Mod] [DEBUG] [REPLY] Auto-Reply erfolgreich gesendet");
         } catch (Exception e) {
-            System.out.println("[AFK-Mod] [DEBUG] [REPLY] Fehler beim Senden der Nachricht: " + e.getMessage());
+            // System.out.println("[AFK-Mod] [DEBUG] [REPLY] Fehler beim Senden der Nachricht: " + e.getMessage());
         }
     }
 }
