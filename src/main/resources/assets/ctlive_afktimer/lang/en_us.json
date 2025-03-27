@@ -1,0 +1,13 @@
+{
+  "ctlive_afktimer.config.title": "CT-Live AFK Timer Settings",
+  "ctlive_afktimer.config.general": "General",
+  "ctlive_afktimer.config.group": "Main Settings",
+  "ctlive_afktimer.config.group.description": "Basic settings for the AFK Timer",
+  "ctlive_afktimer.config.afkTimeout": "AFK Timeout (Minutes)",
+  "ctlive_afktimer.config.afkTimeout.tooltip": "Time in minutes before you are marked as AFK",
+  "ctlive_afktimer.config.language": "Language",
+  "ctlive_afktimer.config.language.group": "Language Settings",
+  "ctlive_afktimer.config.language.group.description": "Settings for display language",
+  "ctlive_afktimer.config.useEnglishAFKMessage": "AFK Messages in English",
+  "ctlive_afktimer.config.useEnglishAFKMessage.tooltip": "Choose the language of AFK messages to other players. This setting takes effect immediately."
+} 

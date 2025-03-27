@@ -1,0 +1,13 @@
+{
+  "ctlive_afktimer.config.title": "CT-Live AFK Timer Einstellungen",
+  "ctlive_afktimer.config.general": "Allgemein",
+  "ctlive_afktimer.config.group": "Haupteinstellungen",
+  "ctlive_afktimer.config.group.description": "Grundlegende Einstellungen für den AFK Timer",
+  "ctlive_afktimer.config.afkTimeout": "AFK Timeout (Minuten)",
+  "ctlive_afktimer.config.afkTimeout.tooltip": "Zeit in Minuten, nach der Sie als AFK markiert werden",
+  "ctlive_afktimer.config.language": "Sprache",
+  "ctlive_afktimer.config.language.group": "Spracheinstellungen",
+  "ctlive_afktimer.config.language.group.description": "Einstellungen für die Anzeigesprache",
+  "ctlive_afktimer.config.useEnglishAFKMessage": "AFK-Nachrichten auf Englisch",
+  "ctlive_afktimer.config.useEnglishAFKMessage.tooltip": "Wählen Sie die Sprache der AFK-Nachrichten an andere Spieler. Diese Einstellung wird sofort wirksam."
+} 

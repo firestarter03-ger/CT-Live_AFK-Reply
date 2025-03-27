@@ -11,6 +11,6 @@ public class CTLIVEAFKTimer implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("AFK-Timer Mod gestartet!");
+		LOGGER.info("AFK-Reply started!");
 	}
 }
