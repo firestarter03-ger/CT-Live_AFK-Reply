@@ -2,17 +2,17 @@
 	"schemaVersion": 1,
 	"id": "ctlive_afktimer",
 	"version": "${version}",
-	"name": "CTLIVE AFK-Timer",
-	"description": "AFK-Timer erfasst deine Aktivität und Benachrichtigt über den Chat wenn du 5min inaktiv warst!",
+	"name": "CTLIVE AFK-Reply",
+	"description": "AFK-Reply erfasst deine Aktivität, setzt dich nach ablaufen des Times AFK und Auto-Replyt auf jede an dich gewendete Nachricht!",
 	"authors": [
 		"firestarter03"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/firestarter03-ger/CT-Live_AFK-Reply"
 	},
-	"license": "MIT",
-	"icon": "assets/ctlive_afktimer/ctlive_afktimer_icon.png",
+	"license": "CC BY-NC-SA 4.0",
+	"icon": "assets/ctlive_afktimer/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -33,6 +33,16 @@
 		"minecraft": "~1.21.4",
 		"java": ">=21",
 		"fabric-api": "*"
+	},
+	"recommends": {
+		"modmenu": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.twitch": "https://www.twitch.tv/firestarter03"
+			}
+		}
 	},
 	"suggests": {
 		"another-mod": "*"
